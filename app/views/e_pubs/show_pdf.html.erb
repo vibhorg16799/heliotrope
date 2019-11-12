@@ -416,6 +416,7 @@
             this.options.$panel.addClass("annotator-collapsed");
             self.state('close-annotator');
           }
+
       })
 
     cozy.Control.Preferences.fieldset.PDFScale = cozy.Control.Preferences.fieldset.Scale.extend({
@@ -943,6 +944,21 @@
     <%= render "cozy_controls_bottom", presenter: @presenter, parent_presenter: @parent_presenter %>
 
     // Annotation widget checks and initialization
+        var tm;
+        function checkForAnnotator(cb, w) {
+          if (!w) {
+            w = window;
+          }
+          tm = setTimeout(function () {
+            if (w && w.annotator) {
+              clearTimeout(tm);
+              cb();
+            } else {
+              checkForAnnotator(cb, w);
+            }
+          }, 100);
+        }
+
         var $panel = $('.annotator-frame');
 
         // pass the reference to the panel
