@@ -1317,14 +1317,16 @@ footer.press {
   font-size: .9em;
 }
 
-.cozy-container .cozy-panel-feedback {
+.cozy-container .cozy-panel-help-feedback {
   position: fixed;
-  padding-top: 1.8em;
-  padding-left: 1em;
+  padding-top: 2.5em;
   z-index: 2;
+  font-size: .8em;
+  text-transform: uppercase;
 
   a {
     color: #333 !important;
+    margin-left: 1em;
   }
 }
 
