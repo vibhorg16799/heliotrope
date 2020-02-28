@@ -149,14 +149,14 @@
         cozy.control.pageNext({ region: 'right.sidebar' }).addTo(reader);
         <% end %>
 
-        // Feedback widget
+        // Help and Feedback widget
         cozy.control.widget.panel({
           region: 'bottom.navigator.left',
           className: 'cozy-panel-feedback',
           <% if @parent_presenter.webgl? %>
           template: '<a href="https://docs.google.com/forms/d/e/1FAIpQLSehtWeYRAmb12pLcQV0WXDvsQgdEsI6H-gbj4HumdySrmwhZg/viewform?usp=sf_link" target="_blank" title="Report a problem or share feedback"><i class="icon-comment-square oi" data-glyph="comment-square" aria-hidden="true"></i></a>',
           <% else %>
-          template: '<a href="https://umich.qualtrics.com/jfe/form/SV_3KSLynPij0fqrD7?publisher=<%= @subdomain %>&noid=<%= @presenter.id %>&title=<%= @parent_presenter.page_title %>&url=<%= request.original_url %>" target="_blank" title="Report a problem or share feedback"><i class="icon-comment-square oi" data-glyph="comment-square" aria-hidden="true"></i></a>',
+          template: '<a href="https://tools.lib.umich.edu/confluence/display/FPS/Fulcrum+E-Reader+Help" class="help">Help</a><a href="https://umich.qualtrics.com/jfe/form/SV_3KSLynPij0fqrD7?publisher=<%= @subdomain %>&noid=<%= @presenter.id %>&title=<%= @parent_presenter.page_title %>&url=<%= request.original_url %>" target="_blank" title="Report a problem or share feedback"><i class="icon-comment-square oi" data-glyph="comment-square" aria-hidden="true"></i></a>',
           <% end %>
         }).addTo(reader);
 
