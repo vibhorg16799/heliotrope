@@ -1063,37 +1063,6 @@ footer.press {
     }
   }
 
-  // AUDIO and VIDEO - Able Player
-  .able-wrapper {
-
-    .able {
-      box-shadow: 0 0 0 0 transparent;
-
-      .able-seekbar {
-        height: 0.8em;
-      }
-
-      .able-status-bar {
-        height: 2em;
-        min-height: 2em;
-      }
-    }
-  }
-
-  #audio-transcript-container {
-    .able-transcript-area {
-      height: 250px;
-      .able-window-toolbar {
-        height: 40px;
-        padding: 2px;
-      }
-    }
-
-    .able-transcript {
-      height: 207px;
-    }
-  }
-
   #transcript, .translation {
     width: 97%;
   }
