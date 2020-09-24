@@ -13,4 +13,6 @@
 // The directory demo was created to support app/views/utilities/ableplayer.html.erb
 console.log('Hello World from Webpacker pack ableplayer');
 require('./styles/ableplayer.css');
+require('./styles/overrides.css');
+require('./ableplayer_transcript');
 require('./build/ableplayer');

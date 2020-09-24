@@ -1,6 +1,12 @@
+<% content_for :head do %>
+  <%= stylesheet_pack_tag 'ableplayer/build/ableplayer', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'ableplayer/build/ableplayer', 'data-turbolinks-track': 'reload' %>
+<% end %>
+
 <video id="video"
        preload="metadata"
        data-able-player
+       data-speed-icons="arrows"
        data-include-transcript="false"
        data-allow-fullscreen="false"
        poster="<%= hyrax.download_path(file_set.id, file: 'jpeg') %>">

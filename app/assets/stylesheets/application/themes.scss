@@ -2973,6 +2973,16 @@ $iu-midnight: #006298;
 
   // assets
 
+  #transcript {
+    .able-transcript-area {
+      .able-window-toolbar {
+        label {
+          @include georgia-pro;
+        }
+      }
+    }
+  }
+
   //footer
   footer {
     a,
