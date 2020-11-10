@@ -1,11 +1,14 @@
-<%# https://github.com/mlibrary/heliotrope/issues/1084 %>
 <% content_for :head do %>
-    <meta name="turbolinks-cache-control" content="no-cache">
+  <%# https://github.com/mlibrary/heliotrope/issues/1084 %>
+  <meta name="turbolinks-cache-control" content="no-cache">
+  <%= stylesheet_pack_tag 'ableplayer_fileset/build/ableplayer_fileset', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'ableplayer_fileset/build/ableplayer_fileset', 'data-turbolinks-track': 'reload' %>
 <% end %>
 
 <video id="video"
        preload="auto"
        data-able-player
+       data-speed-icons="arrows"
        data-include-transcript="false"
        poster="<%= hyrax.download_path(file_set, file: 'jpeg') %>">
   <source src="<%= hyrax.download_path(file_set, file: 'webm') %>" type="video/webm" />

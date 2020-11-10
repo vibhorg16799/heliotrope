@@ -1,11 +1,14 @@
-<%# https://github.com/mlibrary/heliotrope/issues/1084 %>
 <% content_for :head do %>
+  <%# https://github.com/mlibrary/heliotrope/issues/1084 %>
   <meta name="turbolinks-cache-control" content="no-cache">
+  <%= stylesheet_pack_tag 'ableplayer_fileset/build/ableplayer_fileset', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'ableplayer_fileset/build/ableplayer_fileset', 'data-turbolinks-track': 'reload' %>
 <% end %>
 
 <audio id="audio"
        preload="auto"
        data-able-player
+       data-speed-icons="arrows"
        <%= raw file_set.closed_captions.present? ? 'data-transcript-div="audio-transcript-container" data-lyrics-mode' : 'data-include-transcript="false"' %>>
   <source src="<%= hyrax.download_path(file_set, file: 'ogg') %>" type="audio/ogg" />
   <source src="<%= hyrax.download_path(file_set, file: 'mp3') %>" type="audio/mpeg" />

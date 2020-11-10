@@ -8,8 +8,10 @@
     <base target="_blank">
     <!-- CSS -->
     <%= stylesheet_link_tag 'embed' %>
+    <%= stylesheet_pack_tag 'ableplayer_embed/build/ableplayer_embed', 'data-turbolinks-track': 'reload' %>
     <!-- Javascript -->
     <%= javascript_include_tag 'embed' %>
+    <%= javascript_pack_tag 'ableplayer_embed/build/ableplayer_embed', 'data-turbolinks-track': 'reload' %>
   </head>
   <body <%= "style=\"#{style}\"".html_safe if style.length.positive? %>>
     <%= content_for?(:body) ? yield(:body) : yield %>
