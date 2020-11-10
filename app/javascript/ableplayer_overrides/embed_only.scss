@@ -1,0 +1,42 @@
+// Able Player Overrides Embed Only
+.able-wrapper {
+  .able {
+    margin: 0px;
+    box-shadow: 0 0 0 0 transparent;
+
+    .able-player.able-video {
+      // shunt the controls onto the video and hide them
+      -webkit-transform: translateY(-98px);
+      transform: translateY(-98px);
+      -webkit-opacity: 0;
+      -moz-opacity: 0;
+      opacity: 0;
+      -webkit-transition: all 2s ease;
+      -moz-transition: all 2s ease;
+      -ms-transition: all 2s ease;
+      -o-transition: all 2s ease;
+      transition: all 2s ease;
+      // NB: z-index will be ignored with default (static) position, hence this:
+      position: relative;
+      // able-big-play-button has a z-index of 6500, we need the video controls (to capture clicks) over it
+      z-index: 6501;
+    }
+  }
+
+  // :active here is a first attempt to defeat sticky touch hover behavior
+  .able:hover > div:nth-child(3), .able:active > div:nth-child(3) {
+    // show the controls on hover
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+    opacity: 1;
+  }
+
+  video {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  audio {
+    width: 100% !important;
+  }
+}

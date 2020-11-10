@@ -1,0 +1,40 @@
+// Able Player Overrides Common
+
+.able-wrapper {
+
+  .able {
+    box-shadow: 0 0 0 0 transparent;
+
+    .able-seekbar-wrapper {
+
+      .able-seekbar {
+        height: 0.8em;
+
+        .able-seekbar-head {
+          border-radius: 1em;
+          height: 1.75em;
+          top: -0.5em;
+          width: 1em;
+        }
+
+        .able-seekbar-loaded {
+          height: 0.7em;
+        }
+
+        .able-seekbar-played {
+          height: 0.7em;
+        }
+      }
+    }
+
+    .able-status-bar {
+      height: 2em;
+      min-height: 2em;
+    }
+
+    .able-volume-slider {
+      // https://getbootstrap.com/docs/4.5/getting-started/introduction/#box-sizing
+      box-sizing: content-box;
+    }
+  }
+}
