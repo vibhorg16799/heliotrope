@@ -75,6 +75,8 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 #
 ##############################################################################
 
+gem 'blacklight_oai_provider', "~> 6.1.1"
+
 # HELIO-2531
 gem "sassc", ">= 2.0.0"
 gem "bootstrap-sass", ">= 3.4.1"
@@ -114,6 +116,8 @@ gem 'hyrax', '2.9.3'
 
 # pinned for Jekyll
 gem 'i18n', '~> 0.7'
+
+gem 'irus_analytics', git: 'https://github.com/mlibrary/irus_analytics', ref: '6e7f8c21b83e0ee7d2016063d97730841b494caa'
 
 # Use Jekyll for blog and informational pages
 gem 'jekyll', '~> 3.9.0'

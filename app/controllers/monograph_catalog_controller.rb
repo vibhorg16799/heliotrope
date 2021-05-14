@@ -1,9 +1,35 @@
 # frozen_string_literal: true
 
 class MonographCatalogController < ::CatalogController
+  # begin inject IrusAnalytics::InjectControllerHooksGenerator: include IrusAnalytics controller behavior
+  include IrusAnalytics::Controller::AnalyticsBehaviour
+  # end inject IrusAnalytics::InjectControllerHooksGenerator: include IrusAnalytics controller behavior
+
   before_action :load_presenter, only: %i[index facet]
   before_action :load_stats, only: %i[index facet]
   after_action :add_counter_stat, only: %i[index]
+  # begin inject IrusAnalytics::InjectControllerHooksGenerator: IrusAnalytics after action
+  after_action :send_irus_analytics_investigation, only: [:index]
+  # end inject IrusAnalytics::InjectControllerHooksGenerator: IrusAnalytics after action
+
+  # begin inject IrusAnalytics::InjectControllerHooksGenerator: item_identifier_for_irus_analytics
+  def item_identifier_for_irus_analytics
+    # return the OAI identifier
+    # http://www.openarchives.org/OAI/2.0/guidelines-oai-identifier.htm
+    CatalogController.blacklight_config.oai[:provider][:record_prefix] + ":" + params[:id]
+  end
+  # end inject IrusAnalytics::InjectControllerHooksGenerator: item_identifier_for_irus_analytics
+  # begin inject IrusAnalytics::InjectControllerHooksGenerator: skip_send_irus_analytics?
+  def skip_send_irus_analytics?(usage_event_type)
+    # return true to skip tracking, for example to skip curation_concerns.visibility == 'private'
+    case usage_event_type
+    when 'Investigation'
+      false
+    when 'Request'
+      false
+    end
+  end
+  # end inject IrusAnalytics::InjectControllerHooksGenerator: skip_send_irus_analytics?
 
   self.theme = 'hyrax'
   with_themed_layout 'catalog'

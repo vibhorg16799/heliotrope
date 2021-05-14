@@ -13,6 +13,8 @@ end
 COUNTER_REPORT_ID_CONSTRAINT = { id: /dr|dr_d1|dr_d2|ir|ir_a1|ir_m1|pr|pr_p1|tr|tr_b1|tr_b2|tr_b3|tr_j1|tr_j2|tr_j3|tr_j4|counter4_br2/i }.freeze
 
 Rails.application.routes.draw do
+  concern :oai_provider, BlacklightOaiProvider::Routes.new
+
   namespace :api, constraints: ->(req) { req.format == :json } do
     resource :token, only: %i[show]
 
@@ -193,6 +195,8 @@ Rails.application.routes.draw do
   concern :searchable, Blacklight::Routes::Searchable.new
 
   resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
+    concerns :oai_provider
+
     concerns :searchable
   end
 
