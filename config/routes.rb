@@ -176,6 +176,7 @@ Rails.application.routes.draw do
   get "epubs/#{ Settings.princesse_de_cleves_noid || 'invalidnoid' }", to: redirect("epub_ebooks/#{ Settings.princesse_de_cleves_noid || 'invalidnoid' }", status: 302)
 
   get 'epubs/:id', controller: :e_pubs, action: :show, as: :epub
+  get 'epubs/:epub_id/in-text/*citation', controller: :e_pubs, action: :in_text, as: :in_text_epub
   get 'epubs/:id/*file', controller: :e_pubs, action: :file, as: :epub_file
   get 'epubs_access/:id', controller: :e_pubs, action: :access, as: :epub_access
   get 'epubs_download_chapter/:id', controller: :e_pubs, action: :download_chapter, as: :epub_download_chapter

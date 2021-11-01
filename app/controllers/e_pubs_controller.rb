@@ -4,8 +4,14 @@ class EPubsController < CheckpointController
   include Watermark::Watermarkable
 
   protect_from_forgery except: :file
-  before_action :setup
+  before_action :setup, except: :in_text
   before_action :wayfless_redirect_to_shib_login, only: %i[show]
+
+  def in_text
+    # url = "/epubs/2514nk481?locale=en#/6/26[xchapter_007]!/4/1:0"
+    url = epub_path(params[:epub_id]) + '#/6/26[xchapter_007]!/4/1:0'
+    head :found, location: url
+  end
 
   def show # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
     return redirect_to epub_access_url unless @policy.show?
